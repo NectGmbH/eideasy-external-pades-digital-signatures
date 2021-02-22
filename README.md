@@ -18,15 +18,12 @@ This application can be found from dockerhub also https://hub.docker.com/reposit
 
 To build locally use these commands
 ```
-maven clean package
-sudo docker build . --no-cache -t eideasy/pades-external-digital-signatures 
+docker build . --no-cache -t nect/pades-external-digital-signatures 
 ```
 
 Following will remove any existing instance and install new one that will listen to localhost port 8082. 
 ```
-sudo docker stop eideasy_detached_pades -t 0
-sudo docker rm eideasy_detached_pades
-sudo docker run -d -p 127.0.0.1:8082:8084 --name=eideasy_detached_pades --restart always --log-driver syslog --log-opt tag="{{.Name}}/{{.ID}}" eideasy/pades-external-digital-signatures
+docker run -d -p 8084:8084 --name=nect_pades --restart always nect/pades-external-digital-signatures
 ```
 ## More info
 
