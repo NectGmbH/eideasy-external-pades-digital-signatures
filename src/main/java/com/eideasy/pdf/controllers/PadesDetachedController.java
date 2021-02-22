@@ -165,7 +165,7 @@ public class PadesDetachedController {
         SignatureOptions options = new SignatureOptions();
 
         // Enough room for signature, timestamp and OCSP for baseline-LT profile.
-        options.setPreferredSignatureSize(SignatureOptions.DEFAULT_SIGNATURE_SIZE * 2);
+        options.setPreferredSignatureSize(30000 * 2 + 2);
         document.addSignature(signature, options);
         ExternalSigningSupport externalSigning = document.saveIncrementalForExternalSigning(out);
 
